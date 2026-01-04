@@ -59,6 +59,7 @@ main {
     border-radius: 10px;
     background-color: rgba(139, 92, 246, 0.15);
     border: 1px solid rgba(139, 92, 246, 0.3);
+
 }
 
 .info-card hr {
@@ -132,6 +133,7 @@ main {
     margin-top: 30px;
     color: #9CA3AF;
     transition: all 0.3s ease;
+
 }
 
 .social-handles a:hover {
@@ -157,23 +159,19 @@ main {
 .actual-card .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 25px 30px;
 }
 
-.actual-card .header h1 {
-    color: #F9FAFB;
-    font-weight: 600;
-    margin: 0;
-}
-
+.actual-card .header h1,
 h2 {
+    position: relative;
+    top: 25px;
+    left: 30px;
     color: #F9FAFB;
     font-weight: 600;
 }
 
 .actual-card .header .navbar {
-    padding: 15px 20px;
+    padding: 20px;
     background-color: rgba(139, 92, 246, 0.08);
     backdrop-filter: blur(10px);
     border-bottom-left-radius: 15px;
@@ -284,24 +282,21 @@ h2 {
 
 .actual-card .education-timeline .timeline-header {
     display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 20px 30px;
+    margin: 20px 10px;
 }
 
 .actual-card .education-timeline .timeline-header svg {
+    position: relative;
+    top: 12px;
+    left: 15px;
     width: 56px;
     height: 56px;
-    flex-shrink: 0;
+
     background-color: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(2px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 4px 5px;
-}
-
-.actual-card .education-timeline .timeline-header h2 {
-    margin: 0;
 }
 
 .actual-card .education-timeline .timeline-body {
@@ -367,24 +362,21 @@ h2 {
 
 .actual-card .job-timeline .timeline-header {
     display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 20px 30px;
+    margin: 20px 10px;
 }
 
 .actual-card .job-timeline .timeline-header svg {
+    position: relative;
+    top: 12px;
+    left: 15px;
     width: 56px;
     height: 56px;
-    flex-shrink: 0;
+
     background-color: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(2px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 4px 5px;
-}
-
-.actual-card .job-timeline .timeline-header h2 {
-    margin: 0;
 }
 
 .actual-card .job-timeline .timeline-body {
@@ -397,6 +389,7 @@ h2 {
     width: 2px;
     height: 35px;
     background-color: #fff;
+
 }
 
 .actual-card .job-timeline .timeline-body .timeline-line .timeline-point {
@@ -501,8 +494,7 @@ h2 {
     width: 200px;
     position: relative;
     top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 365px;
 }
 
 .actual-card .body .body-projects p {
@@ -519,8 +511,7 @@ h2 {
     width: 200px;
     position: relative;
     top: 150px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 365px;
 }
 
 .actual-card .body .body-blogs p {
@@ -535,7 +526,7 @@ h2 {
 
 .actual-card .body .map-embedded iframe {
     margin: 40px 100px;
-    width: calc(100% - 200px);
+    width: 80%;
     border-radius: 12px;
     filter: brightness(0.8) contrast(1.1) saturate(0.8) blur(0.2px);
 }
@@ -604,11 +595,11 @@ h2 {
     border-color: rgba(139, 92, 246, 0.2);
 }
 
-/* ========================================
+/* ============================================
    RESPONSIVE MEDIA QUERIES
-   ======================================== */
+   ============================================ */
 
-/* Tablet and below (max-width: 1024px) */
+/* Tablet devices (768px - 1024px) */
 @media screen and (max-width: 1024px) {
     main {
         margin-left: 20px;
@@ -616,52 +607,52 @@ h2 {
     }
 
     .info-card {
-        position: static;
+        position: relative;
+        left: 0;
         width: 100%;
         height: auto;
         margin-bottom: 25px;
-        padding-bottom: 20px;
     }
 
     .info-card .normal-info img {
-        margin: 30px auto 0;
+        margin: 0 auto;
+        margin-top: 30px;
         display: block;
     }
 
     .actual-card .work-cards {
-        margin: 40px 30px 60px;
+        margin: 0 50px;
+        margin-top: 40px;
         justify-content: center;
     }
 
     .actual-card .work-card {
         width: calc(50% - 12px);
-        min-width: 280px;
-    }
-
-    .actual-card .education-timeline .timeline-body .timeline-line {
-        left: 42px;
-    }
-
-    .actual-card .job-timeline .timeline-body .timeline-line {
-        left: 42px;
+        min-width: 300px;
     }
 
     .actual-card .education-timeline .timeline-body .timeline-conatiner,
     .actual-card .job-timeline .timeline-body .timeline-conatiner {
-        margin: 25px 30px 25px 75px;
+        margin: 25px 50px;
+    }
+
+    .actual-card .skills-chart .skills-container {
+        margin: 20px;
     }
 
     .actual-card .body .map-embedded iframe {
-        margin: 40px 30px;
-        width: calc(100% - 60px);
+        margin: 40px 20px;
+        width: calc(100% - 40px);
     }
 
-    .actual-card .body .contact-form .actual-form {
-        margin: 30px;
+    .actual-card .body .body-projects svg,
+    .actual-card .body .body-blogs svg {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
-/* Mobile devices (max-width: 768px) */
+/* Mobile devices (less than 768px) */
 @media screen and (max-width: 768px) {
     main {
         margin-left: 15px;
@@ -669,71 +660,55 @@ h2 {
     }
 
     .info-card {
-        border-radius: 12px;
-        margin-bottom: 20px;
+        border-radius: 10px;
     }
 
     .info-card .normal-info img {
         width: 120px;
         height: 120px;
-        margin-top: 25px;
+        margin-top: 20px;
     }
 
     .info-card .normal-info .profile-name {
         font-size: 1.3rem;
-        margin-top: 15px;
     }
 
-    .info-card .social-info .social {
-        padding: 8px;
-        margin: 0 10px;
+    .info-card .social-info .social .social-data {
+        font-size: 0.85rem;
     }
 
-    .social svg {
+    .info-card .social svg {
         width: 40px;
         height: 45px;
         margin-right: 15px;
         margin-left: 10px;
     }
 
-    .social-data .description {
-        font-size: 0.85rem;
-    }
-
-    .social-handles a svg {
-        width: 20px;
-        margin: 15px 6px 20px;
-    }
-
     .actual-card {
-        margin: 20px 0;
+        border-radius: 10px;
+        margin: 15px 0;
     }
 
     .actual-card .header {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
     }
 
     .actual-card .header h1 {
         font-size: 1.5rem;
-        margin-bottom: 15px;
+        left: 20px;
     }
 
     .actual-card .header .navbar {
-        width: 100%;
-        padding: 15px;
         border-radius: 0;
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
-        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 15px;
     }
 
     .actual-card .header .navlinks {
         flex-wrap: wrap;
-        gap: 8px;
         justify-content: center;
-        padding: 0;
+        gap: 10px;
     }
 
     .actual-card .header .navlinks li {
@@ -746,7 +721,6 @@ h2 {
 
     .actual-card hr {
         margin-left: 20px;
-        width: 45px;
     }
 
     .actual-card .user-introduction-section .introduction {
@@ -755,7 +729,8 @@ h2 {
     }
 
     .actual-card .work-cards {
-        margin: 30px 20px 50px;
+        margin: 0 20px;
+        margin-top: 30px;
         gap: 20px;
     }
 
@@ -768,25 +743,18 @@ h2 {
     .actual-card .user-work svg {
         width: 60px;
         height: 40px;
-        flex-shrink: 0;
     }
 
-    /* Timeline adjustments */
     .actual-card .education-timeline .timeline-header,
     .actual-card .job-timeline .timeline-header {
-        margin: 20px 20px;
-        gap: 12px;
+        margin: 15px 5px;
     }
 
     .actual-card .education-timeline .timeline-header svg,
     .actual-card .job-timeline .timeline-header svg {
         width: 48px;
         height: 48px;
-    }
-
-    .actual-card .education-timeline .timeline-header h2,
-    .actual-card .job-timeline .timeline-header h2 {
-        font-size: 1.3rem;
+        left: 10px;
     }
 
     .actual-card .education-timeline .timeline-body .timeline-line {
@@ -799,28 +767,23 @@ h2 {
 
     .actual-card .education-timeline .timeline-body .timeline-conatiner,
     .actual-card .job-timeline .timeline-body .timeline-conatiner {
-        margin: 20px 20px 20px 70px;
+        margin: 20px 20px;
+        margin-left: 70px;
     }
 
-    .actual-card .education-timeline .timeline-body .timeline-content .timeline-conatiner .timeline-title {
-        font-size: 1rem;
-    }
-
-    /* Skills chart */
     .actual-card .skills-chart .skills-container {
-        margin: 20px;
-        padding: 15px;
+        margin: 15px;
+        padding: 10px;
     }
 
     .actual-card .skills-chart .skills-container .skill {
-        margin: 15px 10px;
+        margin: 20px 15px;
     }
 
     .actual-card .skills-chart .skills-container .skill .skill-title {
         font-size: 1rem;
     }
 
-    /* Portfolio and Blog */
     .actual-card .body .body-header .project-links {
         flex-wrap: wrap;
         margin: 15px 10px;
@@ -839,19 +802,19 @@ h2 {
 
     .actual-card .body .body-projects p,
     .actual-card .body .body-blogs p {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         margin-top: 80px;
         padding: 0 20px;
     }
 
-    /* Contact form */
     .actual-card .body .map-embedded iframe {
-        margin: 30px 20px;
-        width: calc(100% - 40px);
+        margin: 20px 10px;
+        width: calc(100% - 20px);
+        height: 300px;
     }
 
     .actual-card .body .contact-form .actual-form {
-        margin: 25px 20px;
+        margin: 20px;
     }
 
     .actual-card .body .contact-form .actual-form .upper {
@@ -871,58 +834,36 @@ h2 {
     .actual-card .body .contact-form .actual-form .lower textarea {
         height: 250px;
         font-size: 1rem;
-        padding: 12px;
-        border-radius: 12px;
+        border-radius: 15px;
     }
 
     .actual-card .body .contact-form .actual-form .lower button {
         width: 100%;
-        padding: 12px 20px;
+        padding: 12px;
         font-size: 1.1rem;
-        margin-top: 20px;
     }
 }
 
-/* Small mobile devices (max-width: 480px) */
+/* Small mobile devices (less than 480px) */
 @media screen and (max-width: 480px) {
     main {
         margin-left: 10px;
         margin-right: 10px;
     }
 
-    .info-card {
-        border-radius: 10px;
-        margin-bottom: 15px;
-    }
-
     .info-card .normal-info img {
         width: 100px;
         height: 100px;
-        margin-top: 20px;
     }
 
     .info-card .normal-info .profile-name {
         font-size: 1.2rem;
-        margin-top: 12px;
+        margin-top: 15px;
     }
 
     .info-card .normal-info .profile-description {
         font-size: 0.75rem;
         width: 110px;
-        margin: 12px auto;
-    }
-
-    .info-card hr {
-        margin: 20px 20px 0;
-    }
-
-    .info-card .social-info {
-        margin-top: 10px;
-    }
-
-    .info-card .social-info .social {
-        margin: 0 5px;
-        padding: 8px 5px;
     }
 
     .info-card .social-info .social .social-data {
@@ -930,175 +871,54 @@ h2 {
         margin: 0 10px;
     }
 
-    .social-data .description {
-        font-size: 0.8rem;
-    }
-
-    .social svg {
+    .info-card .social svg {
         width: 35px;
         height: 40px;
-        margin-right: 12px;
-        margin-left: 8px;
     }
 
     .social-handles a svg {
-        width: 18px;
-        margin: 12px 5px 15px;
-    }
-
-    .actual-card {
-        border-radius: 10px;
-        margin: 15px 0;
-        min-height: auto;
-    }
-
-    .actual-card .header {
-        padding: 15px;
+        width: 20px;
+        margin: 15px 6px;
     }
 
     .actual-card .header h1 {
         font-size: 1.3rem;
-        margin-bottom: 12px;
-    }
-
-    .actual-card .header .navbar {
-        padding: 10px 12px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
-
-    .actual-card .header .navlinks {
-        justify-content: center;
-    }
-
-    .actual-card .header .navlinks li {
-        padding: 4px 8px;
+        left: 15px;
     }
 
     .actual-card .header .navlinks li a {
         font-size: 0.9rem;
     }
 
-    .actual-card hr {
-        margin-left: 15px;
-        width: 40px;
-        height: 3px;
-    }
-
     .actual-card .user-introduction-section .introduction {
-        margin: 10px 18px;
+        margin: 10px 20px;
         font-size: 0.9rem;
-        line-height: 1.7;
     }
 
     .actual-card .work-cards {
-        margin: 25px 15px 40px;
-        gap: 15px;
+        margin: 0 15px;
+        margin-top: 25px;
     }
 
     .actual-card .work-card {
-        flex-direction: column;
         padding: 15px;
-        gap: 10px;
-        align-items: flex-start;
+        flex-direction: column;
+        text-align: center;
     }
 
     .actual-card .user-work svg {
-        width: 50px;
-        height: 35px;
-    }
-
-    .actual-card .user-work .card-data .card-title {
-        font-size: 1rem;
-    }
-
-    .actual-card .user-work .card-data .card-description {
-        font-size: 0.85rem;
-    }
-
-    /* Timeline adjustments for small mobile */
-    .actual-card .education-timeline .timeline-header,
-    .actual-card .job-timeline .timeline-header {
-        margin: 15px 15px;
-        gap: 10px;
-    }
-
-    .actual-card .education-timeline .timeline-header svg,
-    .actual-card .job-timeline .timeline-header svg {
-        width: 42px;
-        height: 42px;
-    }
-
-    .actual-card .education-timeline .timeline-header h2,
-    .actual-card .job-timeline .timeline-header h2 {
-        font-size: 1.15rem;
-    }
-
-    .actual-card .education-timeline .timeline-body .timeline-line {
-        left: 32px;
-    }
-
-    .actual-card .job-timeline .timeline-body .timeline-line {
-        left: 32px;
+        margin: 0 auto;
     }
 
     .actual-card .education-timeline .timeline-body .timeline-conatiner,
     .actual-card .job-timeline .timeline-body .timeline-conatiner {
-        margin: 15px 15px 15px 58px;
-        padding: 10px;
-    }
-
-    .actual-card .education-timeline .timeline-body .timeline-content .timeline-conatiner .timeline-title {
-        font-size: 0.95rem;
-    }
-
-    .actual-card .education-timeline .timeline-body .timeline-content .timeline-conatiner .timeline-date,
-    .actual-card .job-timeline .timeline-body .timeline-content .timeline-conatiner .timeline-date {
-        font-size: 0.85rem;
-    }
-
-    .actual-card .education-timeline .timeline-body .timeline-content .timeline-conatiner .timeline-description,
-    .actual-card .job-timeline .timeline-body .timeline-content .timeline-conatiner .timeline-description {
-        font-size: 0.85rem;
-    }
-
-    /* Skills chart */
-    .actual-card .skills-chart .skills-container {
-        margin: 15px;
-        padding: 12px;
+        margin: 15px 10px;
+        margin-left: 60px;
+        font-size: 0.9rem;
     }
 
     .actual-card .skills-chart .skills-container .skill {
-        margin: 12px 8px;
-    }
-
-    .actual-card .skills-chart .skills-container .skill .skill-title {
-        font-size: 0.95rem;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-
-    .actual-card .skills-chart .skills-container .skill .skill-title .percentage-text {
-        font-size: 0.85rem;
-        margin-left: 5px;
-    }
-
-    .actual-card .skills-chart .skills-container .skill .skill-bar {
-        margin-top: 8px;
-    }
-
-    /* Portfolio and Blog */
-    .actual-card .body .body-header .project-links {
-        margin: 12px 8px;
-    }
-
-    .actual-card .body .body-header .project-links li {
-        margin: 4px 6px;
-    }
-
-    .actual-card .body .body-header .project-links li a {
-        font-size: 0.85rem;
+        margin: 15px 10px;
     }
 
     .actual-card .body .body-projects svg,
@@ -1109,46 +929,11 @@ h2 {
 
     .actual-card .body .body-projects p,
     .actual-card .body .body-blogs p {
-        font-size: 1rem;
+        font-size: 1.2rem;
         margin-top: 60px;
-        padding: 0 15px;
-        line-height: 1.4;
-    }
-
-    /* Contact form */
-    .actual-card .body .map-embedded iframe {
-        margin: 20px 15px;
-        width: calc(100% - 30px);
-        height: 300px;
     }
 
     .actual-card .body .contact-form .actual-form {
-        margin: 20px 15px;
-    }
-
-    .actual-card .body .contact-form .actual-form .upper {
-        gap: 15px;
-    }
-
-    .actual-card .body .contact-form .actual-form .upper input {
-        padding: 10px;
-        font-size: 0.95rem;
-    }
-
-    .actual-card .body .contact-form .actual-form .lower {
-        margin: 25px 0;
-    }
-
-    .actual-card .body .contact-form .actual-form .lower textarea {
-        height: 200px;
-        font-size: 0.95rem;
-        padding: 10px;
-        border-radius: 10px;
-    }
-
-    .actual-card .body .contact-form .actual-form .lower button {
-        padding: 10px 20px;
-        font-size: 1rem;
-        margin-top: 15px;
+        margin: 15px;
     }
 }
