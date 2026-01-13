@@ -234,11 +234,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100%;
+            height: calc(2 * 350px + 2rem);
+            width: 100%;
             color: var(--text-muted);
             font-size: 1.1rem;
-            border: 1px dashed var(--border);
+            text-align: center;
+            padding: 2rem;
+            border: solid 1px var(--hover);
         }
+
 
         .projects-grid {
             display: grid;
@@ -711,7 +715,6 @@
         const menuBtn = document.querySelector('.mobile-menu-btn');
         const navUl = document.querySelector('nav ul');
         const filterButtons = document.querySelectorAll('.filter-btn');
-        const projects = document.querySelectorAll('.project-card');
         const allProjects = Array.from(document.querySelectorAll('.project-card'));
         const grid = document.querySelector('.projects-grid');
 
@@ -724,12 +727,17 @@
 
         function renderProjects() {
             grid.innerHTML = '';
+            grid.style.display = 'grid';
 
             const filtered = allProjects.filter(p =>
                 currentCategory === 'all' || p.dataset.category === currentCategory
             );
 
             if (filtered.length === 0) {
+                grid.style.display = 'flex';
+                grid.style.alignItems = 'center';
+                grid.style.justifyContent = 'center';
+
                 const empty = document.createElement('div');
                 empty.className = 'no-projects';
                 empty.textContent = 'No projects yet';
@@ -776,6 +784,7 @@
         // Initial render
         renderProjects();
 
+        // Mobile menu
         menuBtn.addEventListener('click', () => {
             navUl.classList.toggle('active');
         });
@@ -786,6 +795,7 @@
             });
         });
 
+        // Copy email with toast
         function copyEmail() {
             const email = 'kirt4n.b8@gmail.com';
             const toast = document.querySelector('.toast');
@@ -793,9 +803,7 @@
             navigator.clipboard.writeText(email).then(() => {
                 toast.textContent = 'Email copied to clipboard!';
                 toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2000);
+                setTimeout(() => toast.classList.remove('show'), 2000);
             }).catch(() => {
                 const t = document.createElement('textarea');
                 t.value = email;
@@ -803,14 +811,14 @@
                 t.select();
                 document.execCommand('copy');
                 document.body.removeChild(t);
+
                 toast.textContent = 'Email copied to clipboard!';
                 toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2000);
+                setTimeout(() => toast.classList.remove('show'), 2000);
             });
         }
 
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -824,6 +832,7 @@
             });
         });
     </script>
+
 </body>
 
 </html>
