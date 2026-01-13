@@ -207,14 +207,52 @@
         }
 
         /* Projects */
+        .project-filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.4rem 1rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            color: var(--text);
+            border-color: var(--text);
+        }
+
+        .no-projects {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            border: 1px dashed var(--border);
+        }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 350px;
             gap: 2rem;
-            margin-top: 2rem;
+            min-height: calc(2 * 350px + 2rem);
         }
 
         .project-card {
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             border: 1px solid var(--border);
             background: var(--card-bg);
             padding: 2rem;
@@ -266,6 +304,31 @@
 
         .project-links a:hover {
             color: var(--text);
+        }
+
+        .projects-wrapper {
+            overflow: hidden;
+            padding-top: 8px;
+        }
+
+        .project-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: .4rem 1rem;
+            cursor: pointer;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
         }
 
         /* Contact */
@@ -462,8 +525,8 @@
                         <div class="skill-item">JavaScript</div>
                         <div class="skill-item">C/C++</div>
                         <div class="skill-item">MySQL</div>
-                        <div class="skill-item">Basic Java</div>
-                        <div class="skill-item">Prompt Eng.</div>
+                        <div class="skill-item">Java <em>(Basic)</em></div>
+                        <div class="skill-item">Propmt Engineering</div>
                     </div>
                 </div>
             </div>
@@ -473,126 +536,141 @@
     <section id="projects">
         <div class="container">
             <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Advanced To-Do App</h3>
-                    <p>A feature-rich task management application with advanced organization capabilities and an
-                        intuitive user interface built with modern web technologies.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">ChatGPT</span>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="ai">AI / ML</button>
+                <button class="filter-btn" data-filter="security">CyberSecurity</button>
+                <button class="filter-btn" data-filter="iot">IoT</button>
+            </div>
+
+            <div class="projects-wrapper">
+                <div class="projects-grid">
+                    <div class="project-card" data-category="web">
+                        <h3>Advanced To-Do App</h3>
+                        <p>A feature-rich task management application with advanced organization capabilities and an
+                            intuitive user interface built with modern web technologies.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">ChatGPT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/kirtanb-05/Built-In-A-Cave-With-JS/tree/main/Advanced%20To-Do"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/kirtanb-05/Built-In-A-Cave-With-JS/tree/main/Advanced%20To-Do"
-                            target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
+
+                    <div class="project-card" data-category="web">
+                        <h3>EyeQ - Intelligence System</h3>
+                        <p>An intelligent system designed to process and analyze data, providing smart insights and
+                            automated decision-making capabilities through advanced algorithms.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">ChatGPT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/kirtanb-05/Built-In-A-Cave-With-JS/tree/main/EyeQ%20-%20Intelligence%20System"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
                     </div>
+
+                    <div class="project-card" data-category="web">
+                        <h3>LifeOS - Life On Simulation</h3>
+                        <p>A simulation platform that models life processes and scenarios, offering an interactive
+                            environment for experimentation and learning about complex systems.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">ChatGPT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/kirtanb-05/Built-In-A-Cave-With-JS/tree/main/LifeOS%20-%20Life%20On%20Simulation"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="web">
+                        <h3>Waydar - The Weather App</h3>
+                        <p>
+                            A weather information platform that tracks real-time conditions and forecasts, offering an
+                            interactive
+                            environment for monitoring climate data and location-based changes.
+                        </p>
+
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">ChatGPT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/kirtanb-05/JavaScript-Projects/tree/main/weather%20app"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="web">
+                        <h3>PokiFetch - Data Fetcher</h3>
+                        <p>
+                            A Pokémon information platform that fetches Pokémon data and images, offering an interactive
+                            environment for searching, viewing, and exploring Pokémon details and visuals.
+                        </p>
+
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">ChatGPT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/kirtanb-05/JavaScript-Projects/tree/main/pokemon%20fetcher"
+                                target=" _blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="web"> <!-- web, ai, security, iot -->
+                        <h3>Xpains – Expense Tracker</h3>
+                        <p>
+                            A financial tracking platform that records expenses and spending patterns, offering an
+                            interactive
+                            environment for managing budgets and understanding personal finance behavior.
+                        </p>
+
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">ChatGPT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/kirtanb-05/JavaScript-Projects/tree/main/expense%20tracker"
+                                target=" _blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
+            </div>
 
-                <div class="project-card">
-                    <h3>EyeQ - Intelligence System</h3>
-                    <p>An intelligent system designed to process and analyze data, providing smart insights and
-                        automated decision-making capabilities through advanced algorithms.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">ChatGPT</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/kirtanb-05/Built-In-A-Cave-With-JS/tree/main/EyeQ%20-%20Intelligence%20System"
-                            target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>LifeOS - Life On Simulation</h3>
-                    <p>A simulation platform that models life processes and scenarios, offering an interactive
-                        environment for experimentation and learning about complex systems.</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">ChatGPT</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/kirtanb-05/Built-In-A-Cave-With-JS/tree/main/LifeOS%20-%20Life%20On%20Simulation"
-                            target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Waydar - The Weather App</h3>
-                    <p>
-                        A weather information platform that tracks real-time conditions and forecasts, offering an
-                        interactive
-                        environment for monitoring climate data and location-based changes.
-                    </p>
-
-                    <div class="tech-tags">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">ChatGPT</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/kirtanb-05/JavaScript-Projects/tree/main/weather%20app"
-                            target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>PokiFetch - Data Fetcher</h3>
-                    <p>
-                        A Pokémon information platform that fetches Pokémon data and images, offering an interactive
-                        environment for searching, viewing, and exploring Pokémon details and visuals.
-                    </p>
-
-                    <div class="tech-tags">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">ChatGPT</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/kirtanb-05/JavaScript-Projects/tree/main/pokemon%20fetcher"
-                            target=" _blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Xpains – Expense Tracker</h3>
-                    <p>
-                        A financial tracking platform that records expenses and spending patterns, offering an
-                        interactive
-                        environment for managing budgets and understanding personal finance behavior.
-                    </p>
-
-                    <div class="tech-tags">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">ChatGPT</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/kirtanb-05/JavaScript-Projects/tree/main/expense%20tracker"
-                            target=" _blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-
+            <div class="project-nav">
+                <button class="nav-btn" id="prevBtn">←</button>
+                <button class="nav-btn" id="nextBtn">→</button>
             </div>
 
         </div>
@@ -632,6 +710,71 @@
     <script>
         const menuBtn = document.querySelector('.mobile-menu-btn');
         const navUl = document.querySelector('nav ul');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projects = document.querySelectorAll('.project-card');
+        const allProjects = Array.from(document.querySelectorAll('.project-card'));
+        const grid = document.querySelector('.projects-grid');
+
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        let currentCategory = 'all';
+        let currentPage = 0;
+        const PAGE_SIZE = 6;
+
+        function renderProjects() {
+            grid.innerHTML = '';
+
+            const filtered = allProjects.filter(p =>
+                currentCategory === 'all' || p.dataset.category === currentCategory
+            );
+
+            if (filtered.length === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'no-projects';
+                empty.textContent = 'No projects yet';
+                grid.appendChild(empty);
+
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
+                return;
+            }
+
+            const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+            const start = currentPage * PAGE_SIZE;
+            const pageItems = filtered.slice(start, start + PAGE_SIZE);
+
+            pageItems.forEach(p => grid.appendChild(p));
+
+            prevBtn.disabled = currentPage === 0;
+            nextBtn.disabled = currentPage >= totalPages - 1;
+        }
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                currentCategory = btn.dataset.filter;
+                currentPage = 0;
+                renderProjects();
+            });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 0) {
+                currentPage--;
+                renderProjects();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentPage++;
+            renderProjects();
+        });
+
+        // Initial render
+        renderProjects();
 
         menuBtn.addEventListener('click', () => {
             navUl.classList.toggle('active');
@@ -684,4 +827,3 @@
 </body>
 
 </html>
-
